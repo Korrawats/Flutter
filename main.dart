@@ -1,37 +1,9 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:hello/pages/game/game_page.dart';
-import 'package:hello/pages/game_count_number/numbers_game.dart';
+import 'package:hello/pages/home/home_page.dart';
 import 'package:hello/pages/login/login_page.dart';
-import 'package:hello/pages/test/test.dart';
-import 'package:hello/testt/test.dart';
 
 void main() {
-
-  /*var r = Random();
-  var answer = r.nextInt(100);
-
-  var textColor = Colors.lightGreenAccent;
-
-  var textStyle = TextStyle(
-      fontSize: 100,
-      color: textColor
-  );
-
-  var textWidget = Text(
-      '$answer',
-      textDirection: TextDirection.ltr,
-      style: textStyle,
-  );
-
-  var centerWidget = Center(child: textWidget);
-
-  runApp(centerWidget);*/
-
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -39,16 +11,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'OLYMPIC BOXING SCORING',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+          headline6: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+          bodyText2: TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        primarySwatch: Colors.blue,
       ),
-      home: test_font(),
+      home: LoginPage(),
+      routes: {
+        '/login': (context) => const LoginPage(),
+        '/home': (context) => const HomePage(),
+      },
     );
   }
 }
-
-
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -120,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
