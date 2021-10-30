@@ -1,49 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:hello/pages/food/food_details_page.dart';
+import 'package:hello/pages/food/food_list_page.dart';
+import 'package:hello/pages/home/home_page.dart';
+import 'package:hello/pages/login/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'pages/guess.dart';
-
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        fontFamily: GoogleFonts.athiti().fontFamily,
-        primarySwatch: Colors.blue,
-        textTheme: const TextTheme(
+        fontFamily: GoogleFonts.prompt().fontFamily,
+        primarySwatch: Colors.purple,
+        textTheme: TextTheme(
           headline1: TextStyle(
-            fontSize: 40.0,
+            fontSize: 30.0,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
           ),
-          headline2: TextStyle(
-            fontSize: 25.0,
-            color: Colors.white,
-          ),
-          bodyText1: TextStyle(
-            fontSize: 25.0,
-            color: Colors.brown,
-            fontWeight: FontWeight.bold,
+          headline6: TextStyle(
+            fontSize: 22.0,
+            //fontWeight: FontWeight.bold,
           ),
           bodyText2: TextStyle(
-            fontSize: 25.0,
-            color: Colors.deepPurple,
-            fontWeight: FontWeight.bold,
+            fontSize: 14.0,
           ),
         ),
       ),
+      //home: LoginPage(),
       routes: {
-        GuessAge.routeName: (context) => const GuessAge(),
-        Answer.routeName: (context) => const Answer(),
+        LoginPage.routeName: (context) => const LoginPage(),
+        HomePage.routeName: (context) => const HomePage(),
+        FoodListPage.routeName: (context) => const FoodListPage(),
+        FoodDetailsPage.routeName: (context) => const FoodDetailsPage(),
       },
-      initialRoute: GuessAge.routeName,
+      initialRoute: LoginPage.routeName,
     );
   }
 }
